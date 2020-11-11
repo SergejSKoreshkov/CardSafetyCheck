@@ -3,34 +3,36 @@
     <div class="card-offset" ref="offset">
       <h1 ref="h1">Don't let your money gone</h1>
       <h3 ref="h3">Check your card safety</h3>
-      <div class="card-body">
-        <h4>Credit Card</h4>
-        <p>Card number</p>
-        <div class="code">
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
+      <form ref="form" method="get" action="/" @submit.prevent="send">
+        <div class="card-body">
+          <h4>Credit Card</h4>
+          <p>Card number</p>
+          <div class="code">
+            <input type="number" required name="1" />
+            <input type="number" required name="2" />
+            <input type="number" required name="3" />
+            <input type="number" required name="4" />
+          </div>
+          <p>Month/Year</p>
+          <div class="code">
+            <input type="number" required name="5" />
+            <input type="number" required name="6" />
+            <input style="visibility: hidden" type="number" name="7" />
+            <input style="visibility: hidden" type="number" name="8" />
+          </div>
         </div>
-        <p>Month/Year</p>
-        <div class="code">
-          <input type="text" />
-          <input type="text" />
-          <input style="visibility: hidden" type="text" />
-          <input style="visibility: hidden" type="text" />
+        <div class="card-body">
+          <div ref="line" class="inline">
+            <div class="line"></div>
+            <div class="line-ok"></div>
+          </div>
+          <p>CVC code</p>
+          <div class="date">
+            <input type="number" required  name="9" />
+          </div>
         </div>
-      </div>
-      <div class="card-body">
-        <div ref="line" class="inline">
-          <div class="line"></div>
-          <div class="line-ok"></div>
-        </div>
-        <p>CVC code</p>
-        <div class="date">
-          <input type="text" />
-        </div>
-      </div>
-      <button @click="send">Check</button>
+        <button type="submit">Check</button>
+      </form>
     </div>
   </div>
 </template>
@@ -40,7 +42,6 @@ export default {
   name: 'Card',
   methods: {
     send() {
-      this.text = 456
       this.$refs.offset.classList.add('alert')
       setTimeout(() => {
         this.$refs.h3.innerHTML = "";
@@ -96,7 +97,7 @@ export default {
   }
   button {
     padding: 1em 2em 1em 2em;
-    background: #1867c0 !important;
+    background: #4CAF50 !important;
     color: white;
     font-weight: bold;
     border: none;
@@ -104,12 +105,12 @@ export default {
     transition: .3s ease;
   }
   button:hover {
-    background: #1458a5 !important;
+    background: #43A047 !important;
     outline: none;
     box-shadow: none;
   }
   button:active, button:focus {
-    background: #1458a5 !important;
+    background: #43A047 !important;
     outline: none;
     box-shadow: none;
     transform: scale(0.9);
@@ -145,7 +146,7 @@ export default {
   .line-ok {
     width: 0;
     transition: .5s ease;
-    background: rgb(117, 173, 84);
+    background: #4CAF50;
   }
   .ok .line {
     width: 0% !important;
@@ -156,7 +157,7 @@ export default {
   .alert {
     animation: alertKeyframes 0.5s ease-in;
     transition-delay: 0.5s;
-    background: rgb(110, 163, 79);
+    background: #A5D6A7;
     box-shadow: none;
   }
   @keyframes alertKeyframes {
@@ -168,7 +169,7 @@ export default {
     100% {
       transform: translateX(0);
       box-shadow: none;
-      background: rgb(110, 163, 79);
+      background: #A5D6A7;
     }
   }
   .inline {

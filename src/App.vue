@@ -26,7 +26,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #263238;
   background-image: url('./assets/back.jpg');
   background-position: center;
   background-size: cover;
