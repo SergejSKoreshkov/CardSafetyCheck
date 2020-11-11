@@ -8,17 +8,18 @@
           <h4>Credit Card</h4>
           <p>Card number</p>
           <div class="code">
-            <input type="number" required name="1" />
+            <input type="number" required name="1" v-model="type" @keyup="setCardType"/>
             <input type="number" required name="2" />
             <input type="number" required name="3" />
             <input type="number" required name="4" />
           </div>
           <p>Month/Year</p>
-          <div class="code">
-            <input type="number" required name="5" />
-            <input type="number" required name="6" />
-            <input style="visibility: hidden" type="number" name="7" />
-            <input style="visibility: hidden" type="number" name="8" />
+          <div class="year-month">
+            <div>
+              <input type="number" required name="5" />
+              <input type="number" required name="6" />
+            </div>
+            <img ref="cartTypeImage" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"/>
           </div>
         </div>
         <div class="card-body">
@@ -40,7 +41,28 @@
 <script>
 export default {
   name: 'Card',
+  data () {
+    return {
+      type: 4000,
+      cardTypes: {
+        visa: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg",
+        masterCard: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg",
+        americanExpress: "https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg",
+      }
+    }
+  },
   methods: {
+    setCardType() {
+      if (this.type.indexOf("51") === 0) {
+        this.$refs.cartTypeImage.src = this.cardTypes.masterCard
+      }
+      if (this.type.indexOf("4") === 0) {
+        this.$refs.cartTypeImage.src = this.cardTypes.visa
+      }
+      if (this.type.indexOf("34") === 0) {
+        this.$refs.cartTypeImage.src = this.cardTypes.americanExpress
+      }
+    },
     send() {
       this.$refs.offset.classList.add('alert')
       setTimeout(() => {
@@ -174,5 +196,21 @@ export default {
   }
   .inline {
     display: flex;
+  }
+  .year-month {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+  }
+  .year-month img {
+    max-width: 20%;
+    max-height: 45px;
+  }
+  .year-month input {
+    width: 11%;
+    margin-right: .5em;
+    border: none;
+    background: #ddd;
+    padding: .5em;
   }
 </style>
