@@ -74,7 +74,7 @@ export default {
     margin: .5em;    
     position: relative;
     width: 400px;
-    max-width: 85vw;
+    max-width: calc(100% - 1em);
     min-height: 200px;
     border-radius: 10px;
     background: #eee;
