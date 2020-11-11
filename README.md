@@ -1,4 +1,5 @@
-# card
+# Card safety checker
+### Enter your card data and check if hackers databases contains your card number
 
 ## Project setup
 ```
@@ -14,11 +15,3 @@ yarn serve
 ```
 yarn build
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
