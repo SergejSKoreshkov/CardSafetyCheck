@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Card />
+    <p>Disclaimer: This website was created only in educational purposes. No data sending or saving performs. No actual data check performs. Check always returns 'Your card is safe'. Code is open-source and available on <a href="https://github.com/SergejSKoreshkov/CardSafetyCheck">GitHub</a></p>
   </div>
 </template>
 
